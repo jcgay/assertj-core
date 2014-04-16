@@ -18,14 +18,17 @@ import org.assertj.core.groups.FieldsOrPropertiesExtractor;
 import org.assertj.core.groups.MethodInvocationResultExtractor;
 import org.assertj.core.groups.Tuple;
 import org.assertj.core.internal.*;
-import org.assertj.core.util.VisibleForTesting;
+import org.assertj.core.internal.Iterables;
+import org.assertj.core.util.*;
 import org.assertj.core.util.introspection.IntrospectionError;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 
+import static org.assertj.core.util.Iterables.sizeOf;
 import static org.assertj.core.util.Iterables.toArray;
 
 /**
@@ -426,6 +429,14 @@ public abstract class AbstractIterableAssert<S extends AbstractIterableAssert<S,
   public ListAssert<Object> extracting(String propertyOrField) {
     List<Object> values = FieldsOrPropertiesExtractor.extract(propertyOrField, actual);
     return new ListAssert<Object>(values);
+  }
+
+  public <R> ListAssert<R> extracting(Extractor<T, R> extractor) {
+    List<R> values = new ArrayList<R>(sizeOf(actual));
+    for (T element : actual) {
+      values.add(extractor.apply(element));
+    }
+    return new ListAssert<R>(values);
   }
 
   /**
