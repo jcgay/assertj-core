@@ -30,7 +30,9 @@ public class ExpectedException implements TestRule {
     return new ExpectedException();
   }
 
-  private ExpectedException() {}
+  private ExpectedException() {
+      delegate.handleAssertionErrors();
+  }
 
   @Override
   public Statement apply(Statement base, Description description) {
