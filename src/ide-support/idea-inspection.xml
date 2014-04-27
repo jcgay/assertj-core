@@ -1,0 +1,22 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0" is_locked="false">
+    <option name="myName" value="AssertJ" />
+    <option name="myLocal" value="false" />
+    <inspection_tool class="SSBasedInspection" enabled="true" level="ERROR" enabled_by_default="true">
+      <replaceConfiguration name="AssertJ: isEmpty" text="Assertions.assertThat($elements$.isEmpty()).isTrue();" recursive="false" caseInsensitive="true" type="JAVA" reformatAccordingToStyle="true" shortenFQN="true" replacement="Assertions.assertThat($elements$).isEmpty();">
+        <constraint name="eleme" within="" contains="" />
+        <constraint name="elements" within="" contains="" />
+      </replaceConfiguration>
+      <replaceConfiguration name="AssertJ: isNotEmpty" text="Assertions.assertThat($elements$.isEmpty()).isFalse();" recursive="false" caseInsensitive="true" type="JAVA" reformatAccordingToStyle="true" shortenFQN="true" replacement="Assertions.assertThat($elements$).isNotEmpty();">
+        <constraint name="elements" within="" contains="" />
+      </replaceConfiguration>
+      <replaceConfiguration name="AssertJ: isEqualTo" text="Assertions.assertThat($a$.equals($b$));" recursive="false" caseInsensitive="true" type="JAVA" reformatAccordingToStyle="true" shortenFQN="true" replacement="Assertions.assertThat($a$).isEqualTo($b$);">
+        <constraint name="a" within="" contains="" />
+        <constraint name="b" within="" contains="" />
+      </replaceConfiguration>
+      <replaceConfiguration name="AssertJ: isEmpty does nothing" text="Assertions.assertThat($elements$.isEmpty());" recursive="false" caseInsensitive="true" type="JAVA" reformatAccordingToStyle="true" shortenFQN="true" replacement="Assertions.assertThat($elements$).isEmpty();">
+        <constraint name="elements" within="" contains="" />
+      </replaceConfiguration>
+    </inspection_tool>
+  </profile>
+</component>
